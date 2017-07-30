@@ -4,8 +4,6 @@ export default {
   format: 'cjs',
   dest: './lib/lib.js',
   external: [
-    'immutable',
-    'rxjs',
     'ramda',
-  ], 
+  ],
 }
