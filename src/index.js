@@ -1,3 +1,7 @@
 import validate from './validate'
+import {createRule} from './rules'
 
-export default validate
+export {
+  createRule,
+  validate,
+}

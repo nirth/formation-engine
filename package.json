@@ -1,6 +1,6 @@
 {
   "name": "formation-engine",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "formation-engine is a simple validation engine that follows the rule - Rules plus Values equals Results",
   "main": "./lib/lib.js",
   "scripts": {
