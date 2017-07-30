@@ -1,6 +1,6 @@
 {
   "name": "formation-engine",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "formation-engine is a simple validation engine that follows the rule - Rules plus Values equals Results",
   "main": "./lib/lib.js",
   "scripts": {
@@ -61,7 +61,7 @@
     "sinon-chai": "^2.11.0",
     "sinon-chai-in-order": "^0.1.0"
   },
-  "dependencies": {
+  "peerDependencies": {
     "ramda": "^0.24.1"
   }
 }
