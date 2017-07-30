@@ -1,6 +1,6 @@
 {
-  "name": "formstatejs",
-  "version": "0.2.0",
+  "name": "formstate-engine",
+  "version": "0.2.1",
   "description": "formation-engine is a simple validation engine that follows the rule - Rules plus Values equals Results",
   "main": "./lib/lib.js",
   "scripts": {
@@ -15,13 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:nirth/matejs.git"
+    "url": "git@github.com:nirth/formation-engine.git"
   },
   "keywords": [
-    "fp",
-    "flux",
-    "store",
-    "front-controller"
+    "validation",
+    "forms"
   ],
   "author": "David Sergey <me@davidsergey.com> (https://davidsergey.com)",
   "license": "MIT",
