@@ -10,6 +10,7 @@ const mergeRulesAndValues = (rs: Rules, vs: Values) => mergeDeepLeft(
   movePropertyDeeperIntoObject('value', vs)
 )
 
+// TODO: Add third paramters - settings.
 const validate = (rules: Rules, values: Values): Results => ramdaValues(
   mapObjIndexed(
     (v: {value: Value, rule: Rule}, k) => ({name: k, rule: v.rule, value: v.value}),
