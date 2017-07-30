@@ -1,5 +1,5 @@
 {
-  "name": "formstate-engine",
+  "name": "formation-engine",
   "version": "0.2.1",
   "description": "formation-engine is a simple validation engine that follows the rule - Rules plus Values equals Results",
   "main": "./lib/lib.js",
