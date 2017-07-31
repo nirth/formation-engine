@@ -27,7 +27,6 @@ const validate = (rules: Rules, values: Values): Results => ramdaValues(
     {}
   )
 
-export default curry(validate)
 /**
  * Validates single field against set of `rules`.
  *
@@ -42,4 +41,12 @@ const validateSingleField = (rules: Rules, field: string, values: Values): Resul
   // * As a future
   console.log('validateSingleField', rules, field, values)
   return runRule(rules[field], values[field])
+}
+
+const curriedValidate = curry(validate)
+const curriedValidateSingleField = curry(validateSingleField)
+
+export {
+  curriedValidate as validate,
+  curriedValidateSingleField as validateSingleField,
 }
