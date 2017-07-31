@@ -67,16 +67,15 @@ describe('validateSingleField function should', () => {
   it('return no messages when validating valid amount field', () => {
     const validationResult = validateSingleField(smokeleafRules, 'amount', smokeleafValidAgreedAndAmount)
 
-    expect(validationResult.messages).to.have.lengthOf(0)
+    // expect(validationResult.messages).to.have.lengthOf(0)
+    expect(validationResult.messages).to.deep.equal([])
     expect(resultIsValid(validationResult)).to.be.true()
   })
 
-  // it('return error messages when validating invalid amount field', () => {
-  //   const invalidResultWithTwoMessages = validateSingleField(smokeleafRulesRequiredAmount, 'amount', smokeleafInvalidQuantityAndAmount)
-  //   console.log('\nRules:', JSON.stringify(smokeleafRulesRequiredAmount))
-  //   console.log('\nValues:', JSON.stringify(smokeleafInvalidQuantityAndAmount))
-  //   console.log('\nResult:', JSON.stringify(invalidResultWithTwoMessages))
-  //   expect(invalidResultWithTwoMessages.messages).to.have.lengthOf(2)
-  //   expect(resultIsValid(invalidResultWithTwoMessages)).to.be.false()
-  // })
+  it('return error messages when validating invalid amount field', () => {
+    const invalidResultWithTwoMessages = validateSingleField(smokeleafRulesRequiredAmount, 'amount', smokeleafInvalidQuantityAndAmount)
+
+    expect(invalidResultWithTwoMessages.messages).to.have.lengthOf(2)
+    expect(resultIsValid(invalidResultWithTwoMessages)).to.be.false()
+  })
 })

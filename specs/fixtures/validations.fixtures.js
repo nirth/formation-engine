@@ -9,7 +9,7 @@ export const agreedToTermsAndConditions = (value) => (value === true ? null : TE
 export const NOT_AN_INTEGER_ERROR = 'Has to be integer (whole number) we don‘t know how to round'
 export const onlyIntegers = (value) => (integersRe.test(value) ? null : NOT_AN_INTEGER_ERROR)
 
-export const NOT_A_REAL_NUMBER_ERROR = 'Has to be a number, are you imagining something? Yeah, stupid pun'
+export const NOT_A_REAL_NUMBER_ERROR = 'Has to be a real number, are you imagining something? (pun intended)'
 export const onlyRealNumbers = (value) => (realsNumbersRe.test(value) ? null : NOT_A_REAL_NUMBER_ERROR)
 
 export const TOO_POOR_ERROR = 'You are too poor to be talking to us'

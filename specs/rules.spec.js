@@ -71,15 +71,15 @@ describe('runRule function should', () => {
   })
 
   it('result in appropriate messages and invalid result when input is invalid', () => {
-    // const agreedResult = runRule(termsAndConditionsRequiredAndSigned, false)
-    // const amountResult = runRule(amountIsRequiredAndRealNumberAndLargerThan500, 'abc')
+    const agreedResult = runRule(termsAndConditionsRequiredAndSigned, false)
+    const amountResult = runRule(amountIsRequiredAndRealNumberAndLargerThan500, 'abc')
     const poorResult = runRule(requiredRichAmount, 'abc')
 
-    // expect(resultIsValid(agreedResult)).to.be.false()
-    // expect(agreedResult.messages).to.have.lengthOf(1)
+    expect(resultIsValid(agreedResult)).to.be.false()
+    expect(agreedResult.messages).to.have.lengthOf(1)
 
-    // expect(resultIsValid(amountResult)).to.be.false()
-    // expect(amountResult.messages).to.have.lengthOf(2)
+    expect(resultIsValid(amountResult)).to.be.false()
+    expect(amountResult.messages).to.have.lengthOf(2)
 
     expect(resultIsValid(poorResult)).to.be.false()
     expect(poorResult.messages).to.have.lengthOf(2)
