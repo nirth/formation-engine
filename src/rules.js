@@ -9,7 +9,7 @@ export const createRule = (validations: Validation[], required: boolean = false,
   defaultValue,
 })
 
-export const shouldRuleBeInvoked = curry((rule: Rule, value: Value): boolean => {
+const shouldRuleBeInvoked = (rule: Rule, value: Value): boolean => {
   // TODO: This function is provisionaly naive implementation.
   if (rule.required && value === rule.defaultValue) {
     // Abort validation if field if field is _not_ required and value _is_ defaultValue
@@ -18,7 +18,7 @@ export const shouldRuleBeInvoked = curry((rule: Rule, value: Value): boolean => 
   return true
 })
 
-export const runRule = curry((rule: Rule, value: Value): Result => {
+const runRule = (rule: Rule, value: Value): Result => {
   if (!shouldRuleBeInvoked(rule, value)) {
     return createAlwaysValidResult(value)
   }
@@ -28,3 +28,10 @@ export const runRule = curry((rule: Rule, value: Value): Result => {
     .map((validation: Validation): ?Message => validation(value))
     .filter((maybeMessage: ?Message): boolean => typeof maybeMessage === 'string'))
 })
+const curriedShouldRuleBeInvoked = curry(shouldRuleBeInvoked)
+const curriedRunRule = curry(runRule)
+
+export {
+  curriedRunRule as runRule,
+  curriedShouldRuleBeInvoked as shouldRuleBeInvoked,
+}
