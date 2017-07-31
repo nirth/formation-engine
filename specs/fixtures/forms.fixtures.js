@@ -11,9 +11,9 @@ const createSmokeleafState = (agreed, quantity, amount) => ({agreed, quantity, a
 
 export const smokeleafStateDefault = createSmokeleafState(false, null, null)
 export const smokeleafValidAgeedAndQuantity = createSmokeleafState(true, '10', null)
-export const smokeleafValidAgreedAndAmount = createSmokeleafState(true, null, '199.95')
+export const smokeleafValidAgreedAndAmount = createSmokeleafState(true, null, '599.95')
 export const smokeleafInvalidNotAgreed = createSmokeleafState(false, '10', '10')
-export const smokeleafInvalidQuantityAndAmount = createSmokeleafState(true, '10', '10.10')
+export const smokeleafInvalidQuantityAndAmount = createSmokeleafState(true, '10', 'abc10')
 export const smokeleafInvalidQuantityIsString = createSmokeleafState(true, 'Hello', null)
 
 const quantityOrAmountFilled = ({quantity, amount}) => {
@@ -26,16 +26,22 @@ const quantityOrAmountFilled = ({quantity, amount}) => {
   return null
 }
 
+export const smokeleafRulesRequiredAmount = {
+  agreed: createRule([agreedToTermsAndConditions], true),
+  quantity: createRule([onlyIntegers]),
+  amount: createRule([onlyRealNumbers, richEnough(500)], true),
+}
+
 export const smokeleafRules = {
   // '.': createRule([quantityOrAmountFilled]),
   agreed: createRule([agreedToTermsAndConditions], true),
   quantity: createRule([onlyIntegers]),
-  amount: createRule([onlyRealNumbers, richEnough]),
+  amount: createRule([onlyRealNumbers, richEnough(500)]),
 }
 
 export const smokeleafRulesWithOverall = {
   '.': createRule([quantityOrAmountFilled]),
   agreed: createRule([agreedToTermsAndConditions], true),
   quantity: createRule([onlyIntegers]),
-  amount: createRule([onlyRealNumbers, richEnough]),
+  amount: createRule([onlyRealNumbers, richEnough(500)]),
 }
