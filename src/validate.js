@@ -10,7 +10,13 @@ const mergeRulesAndValues = (rs: Rules, vs: Values) => mergeDeepLeft(
   movePropertyDeeperIntoObject('value', vs)
 )
 
-// TODO: Add third paramters - settings.
+/**
+ * Function `validate` takes in `rules` and `values` and produces `results` of the validation, in effect validating entire form.
+ *
+ * @param {Object | Rules} rules - Set of rules that used by form to validate.
+ * @param {Object | Values} values - Values of the individual inputs that should be validated.
+ * @returns {Results} - Set of results after running a validation.
+ */
 const validate = (rules: Rules, values: Values): Results => ramdaValues(
   mapObjIndexed(
     (v: {value: Value, rule: Rule}, k) => ({name: k, rule: v.rule, value: v.value}),
