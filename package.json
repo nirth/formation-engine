@@ -5,13 +5,14 @@
   "main": "./lib/lib.js",
   "scripts": {
     "test": "node_modules/.bin/mocha ./**/*.spec.js --require babel-register",
-    "health": "npm run typecheck && npm run lint && npm run test",
+    "health": "npm run typecheck && npm run lint && npm run test && npm run build:devnull",
     "fix": "node_modules/.bin/eslint --fix src specs",
     "typecheck": "node_modules/.bin/flow",
     "lint": "node_modules/.bin/eslint src specs",
     "ci": "node_modules/.bin/mocha ./**/*.spec.js --require babel-register --reporter mocha-junit-reporter",
     "clean": "rimraf lib",
-    "build": "npm run clean && rollup -c --config rollup.config.js"
+    "build": "npm run clean && rollup -c --config rollup.config.js",
+    "build:devnull": "npm run build && npm run clean"
   },
   "repository": {
     "type": "git",
