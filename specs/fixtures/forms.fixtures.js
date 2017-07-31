@@ -26,6 +26,12 @@ const quantityOrAmountFilled = ({quantity, amount}) => {
   return null
 }
 
+export const smokeleafRulesRequiredAmount = {
+  agreed: createRule([agreedToTermsAndConditions], true),
+  quantity: createRule([onlyIntegers]),
+  amount: createRule([onlyRealNumbers, richEnough], true),
+}
+
 export const smokeleafRules = {
   // '.': createRule([quantityOrAmountFilled]),
   agreed: createRule([agreedToTermsAndConditions], true),
