@@ -1,9 +1,10 @@
+// eslint max-statements: ["error", 20]
 import chai, {expect} from 'chai'
 import dirtyChai from 'dirty-chai'
 import sinonChai from 'sinon-chai'
 import sinonChaiInOrder from 'sinon-chai-in-order'
 
-import {createResult, isResultValid, appendMessageToResult} from '../src/results'
+import {createResult, resultIsValid, appendMessageToResult} from '../src/results'
 
 chai.use(dirtyChai)
 chai.use(sinonChai)
@@ -38,19 +39,19 @@ describe('createResult funciton should', () => {
   })
 })
 
-describe('isResultValid funciton should', () => {
-  it('exist', () => expect(isResultValid).to.be.a('function'))
+describe('resultIsValid funciton should', () => {
+  it('exist', () => expect(resultIsValid).to.be.a('function'))
 
   it('indicate when result is valid', () => {
     const validResult = createResult('abc')
 
-    expect(isResultValid(validResult)).to.be.true()
+    expect(resultIsValid(validResult)).to.be.true()
   })
 
   it('indicate when result is invalid', () => {
     const validResult = createResult('abc', ['Value has no imagination'])
 
-    expect(isResultValid(validResult)).to.be.false()
+    expect(resultIsValid(validResult)).to.be.false()
   })
 })
 
