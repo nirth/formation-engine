@@ -26,6 +26,17 @@ const shouldRuleBeInvoked = (rule: Rule, value: Value): boolean => {
   return true
 }
 
+const safeInvokeAndReturnValidationResult = (validation: Validation, value: Value): ?Message => {
+  const result = validation(value)
+
+  if (typeof result === 'string' || result === null) {
+    return result
+  }
+
+  throw new Error(
+    `runRule: Result of validation can either be a Message, string or null, instead received ${String(result)} of type ${typeof result}`
+  )
+}
 const runRule = (rule: Rule, value: Value): Result => {
   if (!shouldRuleBeInvoked(rule, value)) {
     return createAlwaysValidResult(value)
