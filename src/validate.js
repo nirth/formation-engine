@@ -1,6 +1,6 @@
 // @flow
 import {curry, mergeDeepLeft, map, values as ramdaValues, mapObjIndexed} from 'ramda'
-import {type Rules, type Values, type Results, type Rule, type Value} from './types.d'
+import {type Rules, type Values, type Result, type Results, type Rule, type Value} from './types.d'
 import {runRule} from './rules'
 
 const movePropertyDeeperIntoObject = (deeperName: string, shape: any): any => map((v) => ({[deeperName]: v}), shape)
