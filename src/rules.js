@@ -37,6 +37,7 @@ const safeInvokeAndReturnValidationResult = (validation: Validation, value: Valu
     `runRule: Result of validation can either be a Message, string or null, instead received ${String(result)} of type ${typeof result}`
   )
 }
+
 const runRule = (rule: Rule, value: Value): Result => {
   if (!shouldRuleBeInvoked(rule, value)) {
     return createAlwaysValidResult(value)
@@ -44,7 +45,7 @@ const runRule = (rule: Rule, value: Value): Result => {
 
   return createResult(value, rule.validations
     // $FlowFixMe: I‘m right, flow wrong in this case.
-    .map((validation: Validation): ?Message => validation(value))
+    .map((validation: Validation): ?Message => safeInvokeAndReturnValidationResult(validation, value))
     .filter((maybeMessage: ?Message): boolean => typeof maybeMessage === 'string'))
 }
 
